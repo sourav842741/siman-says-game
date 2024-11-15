@@ -1,6 +1,8 @@
 let gameSeq = [];
 let userSeq = [];
 
+let HScore = [];
+
 let btns = ["yellow", "red", "purple", "green"];
 
 let started = false;
@@ -10,7 +12,7 @@ let h2 = document.querySelector("h2");
 
 document.addEventListener("keypress", function() {
     if(started == false) {
-        console.log("game started");
+        console.log("----------game started------------");
         started = true;
 
         levelUp();
@@ -53,6 +55,7 @@ function levelUp() {
 }
 
 function checkAns(idx) {
+    let hscore = 0
 
     if(userSeq[idx] === gameSeq[idx]) {
         if(userSeq.length == gameSeq.length) {
@@ -64,6 +67,12 @@ function checkAns(idx) {
         setTimeout(function() {
             document.querySelector("body").style.backgroundColor = "white";
         }, 150)
+        
+        let hs = document.getElementById("hs");
+        HScore.push(level);
+        let max = Math.max(...HScore);
+        hs.innerText = `High Score See Here: ${max}`;
+
         reset();
     }
 }
@@ -90,3 +99,4 @@ function reset() {
     userSeq = [];
     level = 0;
 }
+

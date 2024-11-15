@@ -2,6 +2,12 @@ body {
     text-align: center;
 }
 
+#score {
+    height: 50px;
+    width: 500px;
+    border: 2px solid black;
+}
+
 .btn {
     height: 200px;
     width: 200px;
